@@ -74,7 +74,7 @@ public class VideoCap {
 
 	private void getDetectedFaces(Mat m) {
 		
-		Rect[] rect = FaceRecognition.detectFaces(m);	
+		Rect[] rect = FaceDectector.detectFaces(m);	
 		for (int i=0;i<rect.length;i++) {
 	        Imgproc.rectangle(m, 
 	        					new Point(rect[i].x, rect[i].y), 
@@ -85,7 +85,7 @@ public class VideoCap {
 	}
 	private void getDetectedEyes(Mat m) {
 		
-		Rect[] rect = FaceRecognition.detectEyes(m);	
+		Rect[] rect = FaceDectector.detectEyes(m);	
 		for (int i=0;i<rect.length;i++) {
 			Imgproc.rectangle(m, 
 	        					new Point(rect[i].x, rect[i].y), 

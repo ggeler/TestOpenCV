@@ -5,7 +5,7 @@ import org.opencv.core.Rect;
 
 class FaceCut {
 	public static Mat cutDetectedFaces(Mat m) {
-		Rect[] rect = FaceRecognition.detectFaces(m);
+		Rect[] rect = FaceDectector.detectFaces(m);
 		Rect rectCrop=null;
 		Mat matOut=null;
 		if (rect.length==1) {
