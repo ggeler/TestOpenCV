@@ -17,6 +17,12 @@ class FaceDectector {
 	    //System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
 	    return detectedFaces.toArray();
 	}
+	public static  MatOfRect detectFaces2(Mat m) {
+	    MatOfRect detectedFaces = new MatOfRect();
+	    faceDetector.detectMultiScale(m, detectedFaces);
+	    //System.out.println(String.format("Detected %s faces", faceDetections.toArray().length));
+	    return detectedFaces;
+	}
 	public static  Rect[] detectEyes(Mat m) {
 		MatOfRect eyesDetection = new MatOfRect();
 		eyesDetector.detectMultiScale(m, eyesDetection);
