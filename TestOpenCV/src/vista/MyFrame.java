@@ -8,11 +8,12 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import modelo.VideoCap;
+import modelo.FaceRecognitionEigen;
 
 public class MyFrame extends JFrame {
     private JPanel contentPane;
     private VideoCap videoCap; 
-
+    private FaceRecognitionEigen fr=new FaceRecognitionEigen();
     private class MyThread extends Thread{
         @Override
         public void run() {
@@ -45,6 +46,8 @@ public class MyFrame extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         videoCap = new VideoCap();
+        
+        fr.inicializar(fr);
         new MyThread().start();
     }
 
@@ -52,6 +55,6 @@ public class MyFrame extends JFrame {
         g = contentPane.getGraphics();
         //videoCap.getDetectedFaceOneFrame();
         //videoCap.
-        g.drawImage(videoCap.getFacesOneFrame(), 0, 0, this);
+        g.drawImage(videoCap.getFacesOneFrame(fr), 0, 0, this);
     }
 }

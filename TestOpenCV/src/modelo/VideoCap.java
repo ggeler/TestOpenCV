@@ -21,6 +21,7 @@ public class VideoCap {
 	}
 	private static VideoCapture camera;
 	private static Mat2Image mat2Img = new Mat2Image();
+	FaceRecognitionEigen fr;
 	//private static FaceRecognition fr = new FaceRecognition();
 	
 	public VideoCap (){
@@ -53,9 +54,10 @@ public class VideoCap {
         camera.read(mat2Img.getMat());
         return mat2Img.getImage(mat2Img.getMat());
     }
-	public BufferedImage getFacesOneFrame() {
+	public BufferedImage getFacesOneFrame(FaceRecognitionEigen f) {
+		fr=f;
         camera.read(mat2Img.getMat());
-        getDetectedFaces(mat2Img.getMat());
+        //getDetectedFaces(mat2Img.getMat());
         getDetectedName(mat2Img.getMat());
         //getDetectedEyes(mat2Img.getMat());
 	    //Mat grayM1=Imgcodecs.imread("ggant.jpg",Imgcodecs.CV_LOAD_IMAGE_GRAYSCALE);
@@ -86,10 +88,11 @@ public class VideoCap {
 		}
 		*/
 		//Mat mTmp = FaceCut.cutDetectedFaces(m);
-		FaceRecognitionEigen fr = new FaceRecognitionEigen();
-		String name=fr.faceRecognizer(m);
-		System.out.println("string: "+name);
-		Imgproc.putText(m, name, new Point(10,10), Core.FONT_HERSHEY_COMPLEX, 1, new Scalar(0,0,0));
+		//FaceRecognitionEigen fr = new FaceRecognitionEigen();
+		//String name=fr.faceRecognizer(m);
+		fr.recognize(m);
+		//System.out.println("string: "+name);
+		//Imgproc.putText(m, name, new Point(10,10), Core.FONT_HERSHEY_COMPLEX, 1, new Scalar(0,0,0));
 	}
 	private void getDetectedFaces(Mat m) {
 		
