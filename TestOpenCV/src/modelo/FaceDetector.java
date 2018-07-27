@@ -5,7 +5,7 @@ import org.opencv.core.MatOfRect;
 import org.opencv.core.Rect;
 import org.opencv.objdetect.CascadeClassifier;
 
-class FaceDectector {
+class FaceDetector {
 	private static  CascadeClassifier faceDetector = new CascadeClassifier("/home/gaston/Downloads/opencv-3.4.2/data/lbpcascades/lbpcascade_frontalface_improved.xml");
 			//"/home/gaston/Downloads/opencv-3.4.1/data/lbpcascades/lbpcascade_frontalface_improved.xml");
 	//private static  CascadeClassifier eyesDetector = new CascadeClassifier("/home/gaston/Downloads/xml/haarcascade_mcs_nose.xml");

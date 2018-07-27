@@ -7,7 +7,7 @@ import org.opencv.imgproc.Imgproc;
 
 class FaceCut {
 	public static Mat cutDetectedFaces(Mat m) {
-		Rect[] rect = FaceDectector.detectFaces(m);
+		Rect[] rect = FaceDetector.detectFaces(m);
 		Rect rectCrop=null;
 		Mat matOut=null;
 		if (rect.length==1) {

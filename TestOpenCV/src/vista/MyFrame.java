@@ -55,6 +55,6 @@ public class MyFrame extends JFrame {
         g = contentPane.getGraphics();
         //videoCap.getDetectedFaceOneFrame();
         //videoCap.
-        g.drawImage(videoCap.getFacesOneFrame(fr), 0, 0, this);
+        g.drawImage(videoCap.detectFaces(fr), 0, 0, this);
     }
 }
