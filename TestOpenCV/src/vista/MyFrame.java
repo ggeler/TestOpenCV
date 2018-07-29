@@ -7,7 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import modelo.VideoCap;
+import controlador.VideoCap;
 import modelo.FaceRecognitionEigen;
 
 public class MyFrame extends JFrame {
@@ -45,9 +45,8 @@ public class MyFrame extends JFrame {
         contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-        videoCap = new VideoCap();
-        
-        fr.inicializar(fr);
+        videoCap = new VideoCap(fr);
+        fr.inicializar();
         new MyThread().start();
     }
 
@@ -55,6 +54,6 @@ public class MyFrame extends JFrame {
         g = contentPane.getGraphics();
         //videoCap.getDetectedFaceOneFrame();
         //videoCap.
-        g.drawImage(videoCap.detectFaces(fr), 0, 0, this);
+        g.drawImage(videoCap.detectFaces(), 0, 0, this);
     }
 }

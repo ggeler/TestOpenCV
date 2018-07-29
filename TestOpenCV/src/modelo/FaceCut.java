@@ -26,7 +26,7 @@ class FaceCut {
         //Utils.bitmapToMat(image, imageMat);
 
         //Resize Image
-        Imgproc.resize(m,image_res,new Size(150, 150),0.5,0.5,Imgproc.INTER_AREA);
+        Imgproc.resize(m,image_res,new Size(150, 150),1,1,Imgproc.INTER_CUBIC);//0.5,0.5,Imgproc.INTER_AREA);
         return image_res;
 
 	}

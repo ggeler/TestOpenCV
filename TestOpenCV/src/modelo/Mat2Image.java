@@ -7,13 +7,13 @@ import java.awt.image.WritableRaster;
 import org.opencv.core.Core;
 import org.opencv.core.Mat;
 
-class Mat2Image {
+public class Mat2Image {
 	static{
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
     }
 
-    private Mat mat = new Mat();
-    private BufferedImage img;
+    private static Mat mat = new Mat();
+    private static BufferedImage img;
 
     public Mat2Image() {
     }
@@ -22,25 +22,25 @@ class Mat2Image {
         getSpace(mat);
     }
 
-    public Mat getMat() {
+    public static Mat getMat() {
     	return mat;
     }
     
-     public void getSpace(Mat mat) {
+    private static void getSpace(Mat m) {
         int type = 0;
-        if (mat.channels() == 1) {
+        if (m.channels() == 1) {
             type = BufferedImage.TYPE_BYTE_GRAY;
-        } else if (mat.channels() == 3) {
+        } else if (m.channels() == 3) {
             type = BufferedImage.TYPE_3BYTE_BGR;
         }
-        this.mat = mat;
-        int w = mat.cols();
-        int h = mat.rows();
+        mat = m;
+        int w = m.cols();
+        int h = m.rows();
         if (img == null || img.getWidth() != w || img.getHeight() != h || img.getType() != type)
             img = new BufferedImage(w, h, type);
     }
 
-    BufferedImage getImage(Mat mat){
+    public static BufferedImage getImage(Mat mat){
         getSpace(mat);
         WritableRaster raster = img.getRaster();
         DataBufferByte dataBuffer = (DataBufferByte) raster.getDataBuffer();
